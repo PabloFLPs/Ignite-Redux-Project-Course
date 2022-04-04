@@ -4,15 +4,18 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 // Redux setup:
-import { createStore } from "redux"
+import { createStore, applyMiddleware, compose } from "redux"
 import rootReducer from './reducers';
 import { Provider } from "react-redux"
+import thunk from 'redux-thunk';
+
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 // As we will have multiple reducers, we can't just add all the reducers as parameter in the store.
 // With this, we create a "rootReducer" that will use the "combineReducers" to put it all together:
 const store = createStore(
   rootReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  composeEnhancer(applyMiddleware(thunk))
 )
 
 ReactDOM.render(
