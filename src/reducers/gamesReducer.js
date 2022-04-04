@@ -2,15 +2,16 @@
 const initialState = {
     popular: [],
     newGames: [],
-    upcomingGames: [],
+    upcoming: [],
+    searched: [],
 }
 
-// So, "popular", "newGames" and "upcomingGames" are our this reducer initial state.
+// So, "popular", "newGames" and "upcoming" are our this reducer initial state.
 
 const gamesReducer = (state = initialState, action) => {
     switch(action.type){
         case "FETCH_GAMES":
-            return {...state}
+            return {...state, popular: action.payload.popular}
         default:
             return {...state}
     }
