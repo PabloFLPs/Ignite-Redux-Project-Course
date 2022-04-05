@@ -4,6 +4,10 @@ import React from "react"
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 
+// Redux:
+import { useDispatch } from "react-redux"
+import { loadDetails } from "../actions/detailsAction"
+
 const StyledGame = styled(motion.div)`
     min-height: 30vh;
     box-shadow: 0px 5px 20px rgba(0,0,0,0.4);
@@ -16,9 +20,15 @@ const StyledGame = styled(motion.div)`
     }
 `
 
-const Game = ({ name, image, released }) => {
+const Game = ({ id, name, image, released }) => {
+    // Load Details:
+    const dispatch = useDispatch()
+    const loadDetailsHandler = () => {
+        dispatch(loadDetails(id))
+    }
+
     return (
-        <StyledGame>
+        <StyledGame onClick={loadDetailsHandler}>
             <h3>{name}</h3>
             <p>{released}</p>
             <img src={image} alt={name + " - Background Image"}/>
