@@ -33,11 +33,11 @@ const Home = () => {
     // As soon as the "App" component renders, we will "dispatch" loadGames() information:
     useEffect(() => {
         dispatch(loadGames())
-    }, [])
+    }, [dispatch])
 
     // Getting back the data:
     const {popularGames, newGames, upcomingGames} = useSelector((state) => state.games)
-    console.log({popularGames, newGames, upcomingGames})
+    //console.log(popularGames, newGames, upcomingGames)
 
     return (
         <GameList>
