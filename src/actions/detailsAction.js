@@ -1,7 +1,7 @@
 import axios from "axios"
 import { gameDetailsURL } from "../api"
 
-const loadDetails = (id) => async (dispatch) => {
+export const loadDetails = (id) => async (dispatch) => {
     const detailsData = await axios.get(gameDetailsURL())
 
     dispatch({
@@ -11,5 +11,3 @@ const loadDetails = (id) => async (dispatch) => {
         },
     })
 }
-
-export default loadDetails
