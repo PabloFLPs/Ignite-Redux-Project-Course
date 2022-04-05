@@ -1,9 +1,11 @@
+// Reducers are the logic itself that will implement the referred action intention/objective.
+
 // Each reducer created have a "state", and this one have:
 const initialState = {
-    popular: [],
+    popularGames: [],
     newGames: [],
-    upcoming: [],
-    searched: [],
+    upcomingGames: [],
+    searchedGames: [],
 }
 
 // So, "popular", "newGames" and "upcoming" are our this reducer initial state.
@@ -11,7 +13,12 @@ const initialState = {
 const gamesReducer = (state = initialState, action) => {
     switch(action.type){
         case "FETCH_GAMES":
-            return {...state, popular: action.payload.popular}
+            return {
+                ...state, 
+                popularGames: action.payload.popularGames,
+                newGames: action.payload.newGames,
+                upcomingGames: action.payload.upcomingGames,
+            }
         default:
             return {...state}
     }
