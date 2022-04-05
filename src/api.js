@@ -38,4 +38,7 @@ export const popularGamesURL = () => `${base_URL}${popular_games}`
 export const upcomingGamesURL = () => `${base_URL}${upcoming_games}`
 export const newGamesURL = () => `${base_URL}${new_games}`
 
-console.log(popularGamesURL(), upcomingGamesURL(), newGamesURL())
+// Game Details:
+export const gameDetailsURL = (game_id) => `${base_URL}games/${game_id}?key=${process.env.MY_API_KEY}`
+
+//console.log(gameDetailsURL(638650))
