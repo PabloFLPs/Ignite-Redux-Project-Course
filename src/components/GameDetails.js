@@ -7,15 +7,31 @@ import { motion } from "framer-motion"
 // Redux:
 import { useSelector } from "react-redux"
 
+import { useNavigate } from "react-router-dom"
+
 const GameDetails = () => {
+    const navigate = useNavigate()
+
+    // Exit Game Details Card:
+    const exitDetailCardHandler = (event) => {
+        const element = event.target
+        if(element.classList.contains("card-shadow")){
+            document.body.style.overflow = "auto"
+            navigate("/")
+        }
+    }
+
     // Getting details data:
     const { game, screen, isLoading } = useSelector((state) => state.details)
     console.log(game, screen, isLoading)
 
+    // Preventing scrolling behind game details card:
+    if(!isLoading) document.body.style.overflow = "hidden"
+
     return (
         <>
             {!isLoading && (
-                <CardShadow className="card-shadow">
+                <CardShadow className="card-shadow" onClick={exitDetailCardHandler}>
                     <Detail className="detail">
                         <Stats className="stats">
                             <div className="rating">
