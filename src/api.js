@@ -41,4 +41,7 @@ export const newGamesURL = () => `${base_URL}${new_games}`
 // Game Details:
 export const gameDetailsURL = (game_id) => `${base_URL}games/${game_id}?key=${process.env.MY_API_KEY}`
 
+// Game Screenshot:
+export const gameScreenshotURL = (game_id) => `${base_URL}games/${game_id}/screenshots?key=${process.env.MY_API_KEY}`
+
 //console.log(gameDetailsURL(638650))
