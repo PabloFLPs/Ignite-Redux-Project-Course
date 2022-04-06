@@ -1,6 +1,9 @@
+// If facing cannot map() trough 'undefined', try to initialize the state properties.
 const initialState = {
     game: { platforms: [] },
+    // map((platform) => game.platform)
     screen: { results: [] },
+    // map((result) => screen.results)
 }
 
 const detailsReducer = (state = initialState, action) => {
