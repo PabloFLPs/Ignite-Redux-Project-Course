@@ -28,6 +28,8 @@ const StyledGame = styled(motion.div)`
 const Game = ({ id, name, image, released }) => {
     // Load Details:
     const dispatch = useDispatch()
+
+    // Load Details Handler:
     const loadDetailsHandler = () => {
         dispatch(loadDetails(id))
     }
