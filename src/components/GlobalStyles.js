@@ -33,7 +33,7 @@ const GlobalStyles = createGlobalStyle`
     h3 {
         font-size: 1.3rem;
         color: #333;
-        padding: 1.2rem;
+        padding: 1.2rem 0rem;
     }
 
     p {
