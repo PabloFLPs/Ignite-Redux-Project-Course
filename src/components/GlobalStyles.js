@@ -1,6 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
-// color: #ff7676
+// orange: #ff7676
+// green: #7fffd4
 
 const GlobalStyles = createGlobalStyle`
     * {
@@ -24,9 +25,9 @@ const GlobalStyles = createGlobalStyle`
     }
 
     h2 {
-        font-size: 3rem;
+        font-size: 2.4rem;
         font-family: 'Poppins', sans-serif;
-        font-weight: lighter;
+        font-weight: bold;
         color: #333;
     }
 
