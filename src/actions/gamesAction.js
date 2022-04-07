@@ -1,6 +1,6 @@
 // An "action" is basically an object that contains information.
 import axios from "axios"
-import { newGamesURL, popularGamesURL, upcomingGamesURL } from "../api"
+import { newGamesURL, popularGamesURL, upcomingGamesURL, searchGameURL } from "../api"
 
 // Action Creator:
 // "Action creators" are functions that creates the "actions".
@@ -17,5 +17,16 @@ export const loadGames = () => async (dispatch) => {
             newGames: newData.data.results,
             upcomingGames: upcomingData.data.results,
         },
+    })
+}
+
+export const fetchSearched = (game_name) => async (dispatch) => {
+    const searchGames = await axios.get(searchGameURL(game_name))
+
+    dispatch({
+        type: "FETCH_SEARCHED",
+        payload: {
+            searchedGames: searchGames.data.results,
+        }
     })
 }
