@@ -88,7 +88,10 @@ const GameDetails = ({ id }) => {
                                 <h3>Platforms</h3>
                                 <Platforms className="platforms">
                                     {game.platforms.map((data) => (
-                                        <img key={data.platform.id} src={getPlatform(data.platform.name)} alt={data.platform.name + " - Icon"} />
+                                        <>
+                                            <img key={data.platform.id} src={getPlatform(data.platform.name)} alt={data.platform.name + " - Icon"} />
+                                            {/*<p>{data.platform.name}</p>*/}
+                                        </>
                                     ))}
                                 </Platforms>
                             </Info>
@@ -166,7 +169,7 @@ const Platforms = styled(motion.div)`
     justify-content: space-evenly;
 
     img {
-        margin-left: 3rem;
+        margin-left: 1.8rem;
     }
 `
 
