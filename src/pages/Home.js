@@ -46,7 +46,7 @@ const Home = () => {
     }, [dispatch])
 
     // Getting back the data:
-    const { popularGames, newGames, upcomingGames } = useSelector((state) => state.games)
+    const { popularGames, newGames, upcomingGames, searchedGames } = useSelector((state) => state.games)
     //console.log("Popular Games:", popularGames)
     //console.log("New Games:", newGames)
     //console.log("Upcoming Games", upcomingGames)
@@ -55,6 +55,21 @@ const Home = () => {
         <GameList>
             <AnimateSharedLayout type="crossfade">
                 <AnimatePresence>{pathID && <GameDetails id={id} />}</AnimatePresence>
+                {/* 
+                    "searchedGames" is an empty array, and it results in a "truthy" value.
+                    So this way, we can just use "searchGames.length" instead.
+                */}
+                {searchedGames.length && (
+                    <div className="searched">
+                        <h2>Searched Games</h2>
+                        <Games>
+                            {searchedGames.map((game) => (
+                                <Game key={game.id} id={game.id} name={game.name} image={game.background_image} released={game.released}/>
+                            ))}
+                        </Games>
+                    </div>
+                )}
+
                 <h2>Upcoming Games</h2>
                 <Games>
                     {upcomingGames.map((game) => (
