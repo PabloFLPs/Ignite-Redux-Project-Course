@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom"
 
 import { smallImage } from "../util"
 
-const GameDetails = () => {
+const GameDetails = ({ id }) => {
     const navigate = useNavigate()
 
     // Exit Game Details Card:
@@ -25,7 +25,7 @@ const GameDetails = () => {
 
     // Getting details data:
     const { game, screen, isLoading } = useSelector((state) => state.details)
-    console.log(game, screen, isLoading)
+    //console.log(game, screen, isLoading)
 
     // Preventing scrolling behind game details card:
     if(!isLoading) document.body.style.overflow = "hidden"
@@ -34,10 +34,10 @@ const GameDetails = () => {
         <>
             {!isLoading && (
                 <CardShadow className="card-shadow" onClick={exitDetailCardHandler}>
-                    <Detail className="detail">
+                    <Detail className="detail" layoutId={id}>
                         <Stats className="stats">
                             <div className="rating">
-                                <h3>{game.name}</h3>
+                                <motion.h3 layoutId={`title ${id}`}>{game.name}</motion.h3>
                                 <p>Rating: {game.rating}</p>
                             </div>
                             <Info className="info">
@@ -50,7 +50,7 @@ const GameDetails = () => {
                             </Info>
                         </Stats>
                         <Media className="media">
-                            <img src={smallImage(game.background_image, 1280)} alt={game.name + " - Background Image"} />
+                            <motion.img src={smallImage(game.background_image, 1280)} layoutId={`image ${id}`} alt={game.name + " - Background Image"} />
                         </Media>
                         <Description className="description">
                             <p>{game.description_raw}</p>
