@@ -65,7 +65,7 @@ const Home = () => {
                     So this way, we can just use "searchGames.length" instead.
                 */}
                 
-                {searchedGames.length && (
+                {!!searchedGames.length && (
                     <div className="searched">
                         <h2>Searched Games</h2>
                         <Games>
