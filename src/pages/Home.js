@@ -15,16 +15,21 @@ import { motion, AnimatePresence, AnimateSharedLayout } from 'framer-motion'
 import { useLocation } from "react-router-dom"
 
 const GameList = styled(motion.div)`
-    padding: 0rem 5rem;
+    padding: 3rem 5rem;
+    
     h2 {
         padding: 5rem 0rem;
+    }
+
+    @media only screen and (max-width: 680px) {
+        padding: 1rem 2rem;
     }
 `
 const Games = styled(motion.div)`
     min-height: 80vh;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-    grid-column-gap: 3rem;
+    grid-column-gap: 2rem;
     grid-row-gap: 5rem;
 `
 
@@ -59,6 +64,7 @@ const Home = () => {
                     "searchedGames" is an empty array, and it results in a "truthy" value.
                     So this way, we can just use "searchGames.length" instead.
                 */}
+                
                 {searchedGames.length && (
                     <div className="searched">
                         <h2>Searched Games</h2>
