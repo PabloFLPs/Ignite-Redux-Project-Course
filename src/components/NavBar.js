@@ -44,7 +44,7 @@ const NavBar = () => {
 }
 
 const StyledNavBar = styled(motion.div)`
-    padding: 3rem 5rem;
+    padding: 3rem 0rem;
     text-align: center;
 
     input {
@@ -53,7 +53,7 @@ const StyledNavBar = styled(motion.div)`
         padding: 0.5rem;
         border: none;
         margin-top: 1rem;
-        box-shadow: 0px 0px 20px rgba(0,0,0,0.4);
+        box-shadow: 0px 0px 20px rgba(0,0,0,0.3);
         font-weight: bold;
     }
 
@@ -63,7 +63,14 @@ const StyledNavBar = styled(motion.div)`
         padding: 0.5rem 2rem;
         cursor: pointer;
         background: #ff7676;
-        color: white
+        box-shadow: 0px 0px 20px rgba(0,0,0,0.3);
+        color: black;
+    }
+
+    @media only screen and (max-width: 680px) {
+        button {
+            padding: 0.5rem 0.5rem;
+        }
     }
 `
 
