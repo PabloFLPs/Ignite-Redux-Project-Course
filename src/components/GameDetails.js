@@ -120,6 +120,7 @@ const CardShadow = styled(motion.div)`
     overflow-y: scroll;
     background: rgba(0,0,0,0.5);
     position: fixed;
+    padding: 2rem 0rem;
     top: 0;
     left: 0;
 
