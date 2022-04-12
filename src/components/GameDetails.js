@@ -88,10 +88,7 @@ const GameDetails = ({ id }) => {
                                 <h3>Platforms</h3>
                                 <Platforms className="platforms">
                                     {game.platforms.map((data) => (
-                                        <>
-                                            <img key={data.platform.id} src={getPlatform(data.platform.name)} alt={data.platform.name + " - Icon"} />
-                                            {/*<p>{data.platform.name}</p>*/}
-                                        </>
+                                        <img key={data.platform.id} src={getPlatform(data.platform.name)} alt={data.platform.name + " - Icon"} />
                                     ))}
                                 </Platforms>
                             </Info>
