@@ -30,7 +30,7 @@ const GameDetails = ({ id }) => {
     const exitDetailCardHandler = (event) => {
         const element = event.target
         if(element.classList.contains("card-shadow")){
-            document.body.style.overflow = "auto"
+            document.body.style.overflow = "visible"
             navigate("/")
         }
     }
@@ -71,7 +71,7 @@ const GameDetails = ({ id }) => {
     //console.log(game, screen, isLoading)
 
     // Preventing scrolling behind game details card:
-    if(!isLoading) document.body.style.overflow = "hidden"
+    if(isLoading) document.body.style.overflow = "hidden"
 
     return (
         <>
