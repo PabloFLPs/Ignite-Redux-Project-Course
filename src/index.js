@@ -1,6 +1,4 @@
 import React from 'react';
-//import ReactDOM from 'react-dom/client'
-import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
@@ -12,6 +10,9 @@ import thunk from 'redux-thunk';
 
 import { BrowserRouter } from "react-router-dom"
 
+// createRoot React 18:
+import { createRoot } from "react-dom/client";
+
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 // As we will have multiple reducers, we can't just add all the reducers as parameter in the store.
@@ -22,17 +23,15 @@ const store = createStore(
 )
 
 // Fixing "Warning: ReactDOM.render is no longer supported in React 18. Use createRoot instead."
-//const root = ReactDOM.createRoot(document.getElementById('root'))
+const rootElement = document.getElementById('root')
+const root = createRoot(rootElement)
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </Provider>
-  </React.StrictMode>,
-  document.getElementById('root')
+root.render(
+  <Provider store={store}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function
