@@ -18,7 +18,8 @@ const GameList = styled(motion.div)`
     padding: 3rem 5rem;
     
     h2 {
-        padding: 5rem 0rem;
+        padding-top: 3rem;
+        padding-bottom: 2rem;
     }
 
     @media only screen and (max-width: 680px) {
@@ -30,7 +31,7 @@ const Games = styled(motion.div)`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     grid-column-gap: 2rem;
-    grid-row-gap: 5rem;
+    grid-row-gap: 3rem;
 `
 
 const Home = () => {
